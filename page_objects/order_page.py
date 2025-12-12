@@ -2,9 +2,10 @@ import allure
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from locators.locators import LocatorsForTest
-from page_objects.home_page import HomePage
+from page_objects.base_page import BasePage
+from testdata.testdata import MyURLS
 
-class OrderElements(HomePage):
+class OrderElements(BasePage):
     
     def __init__(self, driver):
         super().__init__(driver)
@@ -85,3 +86,7 @@ class OrderElements(HomePage):
     def click_scooter_logo(self):
         self.find_element(LocatorsForTest.scooter_logo).click()
 
+    @allure.step("Ожидание страницы")
+    def wait_for_page(self, driver):
+        WebDriverWait(driver, 10).until(EC.url_to_be(MyURLS.dzen_url))
+        return self

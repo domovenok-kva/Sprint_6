@@ -30,4 +30,8 @@ class ClientData:
         ['Александр','Привалов', 'улица Проходчиков', 'Шаболовская', '87777777777', '20', 'двое суток', 'серая безысходность', 'Заказ примет Янус Полуэктович']
     ]
 
+class MyURLS:
+    test_service_url = 'https://qa-scooter.praktikum-services.ru/'
+    dzen_url =  'https://dzen.ru/?yredirect=true'
+
 
