@@ -19,7 +19,7 @@ class TestLogo:
         h_page.click_order_btn_header()
         o_page = OrderElements(driver)
         o_page.click_ya_logo()
-        driver.switch_to.window(driver.window_handles[1])
+        o_page.switch_page(driver)
         o_page.wait_for_page(driver)
-        assert driver.current_url == MyURLS.dzen_url
+        assert o_page.check_page_is_correct(driver)
 

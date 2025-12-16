@@ -90,3 +90,14 @@ class OrderElements(BasePage):
     def wait_for_page(self, driver):
         WebDriverWait(driver, 10).until(EC.url_to_be(MyURLS.dzen_url))
         return self
+    
+    @allure.step("Переход на новую страницу")
+    def switch_page(self, driver):
+        driver.switch_to.window(driver.window_handles[1])
+        return self
+    
+    @allure.step("Проверка страницы")
+    def check_page_is_correct(self, driver):
+        driver.current_url == MyURLS.dzen_url
+        return self
+
